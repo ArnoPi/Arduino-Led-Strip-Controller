@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Overzicht:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+De Arduino LED Strip Controller is een webgebaseerde interface waarmee je eenvoudig een RGB LED-strip kunt bedienen met behulp van een Arduino. Gebruikers kunnen in real-time de kleur en helderheid van de LED-strip aanpassen, en de LED-strip in- of uitschakelen. Dit project maakt gebruik van een React-webinterface, Socket.io voor realtime communicatie, en een Node.js-backend die commando's naar de Arduino stuurt via een seriële verbinding.
 
-## Available Scripts
+# Functionaliteit:
+1. Kleurkeuze: Gebruikers kunnen de kleur van de LED-strip instellen via een interactieve kleurkiezer, die de RGB-waarden rechtstreeks naar de Arduino stuurt.
 
-In the project directory, you can run:
+2. Helderheidsregeling: Met een schuifregelaar kunnen gebruikers de helderheid van de LED-strip aanpassen van 0% (uit) tot 100% (volledige helderheid).
 
-### `npm start`
+3. Aan/Uit-knop: Met een duidelijke schakelknop kunnen gebruikers de LED-strip in- en uitschakelen. Wanneer de LED-strip is ingeschakeld, behoudt deze de laatst gekozen kleur en helderheid.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. Realtime updates: Alle wijzigingen die de gebruiker maakt in de webinterface worden in real-time via Socket.io naar de Arduino verzonden, wat zorgt voor directe respons op de LED-strip.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. Snackbar meldingen: Voor elke actie die de gebruiker uitvoert, zoals het aanpassen van de kleur, het veranderen van de helderheid of het in-/uitschakelen van de LED-strip, ontvangt de gebruiker een korte melding onderaan het scherm.
 
-### `npm test`
+# Technische Specificaties:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. ## Frontend (React):
 
-### `npm run build`
+* React.js is gebruikt voor het opbouwen van de gebruikersinterface.
+* SketchPicker van de react-color-bibliotheek voor het selecteren van kleuren.
+* CSS zorgt voor een moderne, minimalistische en gebruiksvriendelijke interface.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. ## Backend (Node.js):
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Node.js wordt gebruikt als server-side platform om de communicatie met de Arduino te beheren.
+* Socket.io verzorgt de real-time communicatie tussen de webinterface en de Arduino.
+* SerialPort-bibliotheek voor het verzenden van seriële commando's naar de Arduino via USB.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. ## Arduino:
 
-### `npm run eject`
+* Arduino UNO bestuurt de LED-strip via PWM (Pulse Width Modulation) op de pinnen die zijn aangesloten op de rode, groene en blauwe LED-kanalen.
+* ArduinoJson-bibliotheek voor het verwerken van de JSON-berichten die door de Node.js-backend worden ontvangen.
+* PWM wordt gebruikt om de helderheid en kleur van de LED's aan te passen.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Benodigdheden:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. ## Hardware:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Arduino UNO of vergelijkbaar.
+* RGB LED-strip met drie kleurkanalen (Rood, Groen, Blauw) en een voedingslijn (5V).
+* USB-kabel voor de seriële verbinding tussen de computer en de Arduino.
+* Optioneel: weerstanden voor de LED-strip.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. ## Software:
 
-## Learn More
+* Node.js en npm voor het draaien van de backend en het beheren van pakketten.
+* Arduino IDE voor het uploaden van de code naar de Arduino.
+* React.js voor de frontend.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  ### Voor hulp contacteer Arnotjuh.be via [https://arnotjuh.be] of me@arnototjuh.be
